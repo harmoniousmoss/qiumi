@@ -1,12 +1,12 @@
-# Quimi
+# Qiumi
 
 **Indonesia-Australia Economic Explorer**
 
-Quimi delivers preliminary insights into the Indonesia-Australia economic landscape—covering policy, investment, and strategic decisions.
+Qiumi delivers preliminary insights into the Indonesia-Australia economic landscape—covering policy, investment, and strategic decisions.
 
 ## About
 
-Quimi is a web application built with Swift and Hummingbird that leverages Llama 4 AI to provide intelligent insights and analysis on the economic relationship between Indonesia and Australia.
+Qiumi is a web application built with Swift and Hummingbird that leverages Llama 4 AI to provide intelligent insights and analysis on the economic relationship between Indonesia and Australia.
 
 ## Features
 

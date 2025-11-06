@@ -56,7 +56,7 @@ struct LlamaService {
         print("📡 API URL: \(url)")
 
         let systemPrompt = """
-        You are Quimi, an AI assistant specialized in Indonesia-Australia economic relations.
+        You are Qiumi, an AI assistant specialized in Indonesia-Australia economic relations.
         You provide insights on:
         - Trade partnerships and agreements
         - Investment opportunities and flows

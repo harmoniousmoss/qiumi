@@ -3,7 +3,7 @@ import AsyncHTTPClient
 import Foundation
 
 @main
-struct QuimiApp {
+struct QiumiApp {
     static func main() async throws {
         // Load configuration
         let config = try Configuration.load()
@@ -18,7 +18,7 @@ struct QuimiApp {
 
         // Add a route for the root path
         router.get("/") { request, context in
-            return "Welcome to Quimi - Indonesia-Australia Economic Explorer"
+            return "Welcome to Qiumi - Indonesia-Australia Economic Explorer"
         }
 
         // Add insights endpoint
