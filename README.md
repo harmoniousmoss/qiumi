@@ -34,32 +34,47 @@ Quimi is a web application built with Swift and Hummingbird that leverages Llama
 
 2. **Configure environment variables**
 
-   Copy `.env.example` to `.env` and update with your Google Cloud credentials:
+   Create a `.env` file in the project root:
    ```bash
-   cp .env.example .env
+   touch .env
    ```
 
-   Edit `.env` and set your values:
+   Add your Google Cloud configuration to `.env`:
+   ```bash
+   PROJECT_ID=
+   REGION=
+   ENDPOINT=
+   LLAMA_MODEL=
    ```
-   PROJECT_ID=your-project-id
-   REGION=us-east5
-   ENDPOINT=us-east5-aiplatform.googleapis.com
-   LLAMA_MODEL=meta/llama-4-maverick-17b-128e-instruct-maas
-   ```
+
+   Refer to [Google Cloud Vertex AI Llama documentation](https://cloud.google.com/vertex-ai) for the appropriate values for your setup.
+
+   > **Note:** The `.env` file is gitignored and will not be committed to the repository.
 
 3. **Authenticate with Google Cloud**
+
+   Make sure you have gcloud CLI installed and authenticated:
    ```bash
    gcloud auth login
    gcloud config set project YOUR_PROJECT_ID
    ```
 
+   The application will automatically use your gcloud credentials to access the Llama 4 API.
+
 ### Running the Application
 
+Build and run the application:
 ```bash
+swift build
 swift run
 ```
 
 The server will start on `http://127.0.0.1:8080`
+
+You should see:
+```
+2025-11-06T16:52:02+0700 info Hummingbird: [HummingbirdCore] Server started and listening on 127.0.0.1:8080
+```
 
 ## API Usage
 
@@ -83,10 +98,10 @@ The server will start on `http://127.0.0.1:8080`
 
 **Example using curl:**
 ```bash
-curl -X POST http://127.0.0.1:8080/insights \
-  -H "Content-Type: application/json" \
-  -d '{"question": "What are the key investment opportunities between Indonesia and Australia?"}'
+curl -X POST http://127.0.0.1:8080/insights -H "Content-Type: application/json" -d '{"question": "What are the key investment opportunities between Indonesia and Australia?"}'
 ```
+
+> **Important:** Make sure the entire command is on one line, or if using line breaks with `\`, ensure there are no line breaks inside the JSON string value.
 
 ## Example Questions
 
@@ -96,12 +111,32 @@ curl -X POST http://127.0.0.1:8080/insights \
 - "How do Indonesia and Australia collaborate on agricultural exports?"
 - "What are the key strategic decisions affecting Indonesia-Australia economic relations?"
 
+## Architecture
+
+- **Configuration**: Environment variable loader for secure credential management
+- **LlamaService**: HTTP client wrapper for Google Cloud Vertex AI Llama 4 API
+- **API Endpoints**: RESTful endpoints with comprehensive error handling
+- **Logging**: Detailed request/response logging for debugging
+
 ## Technologies
 
 - [Swift](https://swift.org/) - Programming language
 - [Hummingbird](https://github.com/hummingbird-project/hummingbird) - Web framework
 - [Llama 4](https://cloud.google.com/vertex-ai) - AI model via Google Cloud Vertex AI
 - [AsyncHTTPClient](https://github.com/swift-server/async-http-client) - HTTP client
+
+## Security
+
+- The `.env` file containing sensitive credentials is excluded from version control
+- All API requests use OAuth 2.0 tokens via Google Cloud CLI
+- Environment variables are loaded at runtime from `.env` file
+
+## Contributing
+
+When contributing, ensure:
+1. Never commit the `.env` file
+2. Update `.env.example` with any new configuration variables (without values)
+3. Test API endpoints thoroughly before submitting changes
 
 ## License
 
