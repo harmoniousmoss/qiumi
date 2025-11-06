@@ -7,7 +7,8 @@ let package = Package(
     name: "quimi",
     platforms: [.macOS(.v14)],
     dependencies: [
-        .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0")
+        .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
+        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.9.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -15,7 +16,8 @@ let package = Package(
         .executableTarget(
             name: "quimi",
             dependencies: [
-                .product(name: "Hummingbird", package: "hummingbird")
+                .product(name: "Hummingbird", package: "hummingbird"),
+                .product(name: "AsyncHTTPClient", package: "async-http-client")
             ]
         ),
     ]
