@@ -1,20 +1,15 @@
-# Qiumi
+# Qiumi - Indonesia-Australia Economic Explorer
 
-**Indonesia-Australia Economic Explorer**
-
-Qiumi delivers preliminary insights into the Indonesia-Australia economic landscape—covering policy, investment, and strategic decisions.
-
-## About
-
-Qiumi is a web application built with Swift and Hummingbird that leverages Llama 4 AI to provide intelligent insights and analysis on the economic relationship between Indonesia and Australia.
+Qiumi provides AI-powered insights into the Indonesia–Australia economic landscape, covering policy, investment, and strategic decision-making. It is built using the Swift programming language (Hummingbird) and Svelte, powered by Llama 4 (Scout) on Vertex AI.
 
 ## Features
 
-- AI-powered insights using Llama 4 (Meta)
+- AI-powered insights using Llama 4 (Scout) on Vertex AI
 - Real-time analysis of Indonesia-Australia economic partnerships
 - Industry sector collaboration insights
 - Investment and policy analysis
 - RESTful API endpoints
+- CORS-enabled for web frontend integration
 
 ## Getting Started
 
@@ -122,8 +117,9 @@ curl -X POST http://127.0.0.1:8080/insights -H "Content-Type: application/json" 
 
 - [Swift](https://swift.org/) - Programming language
 - [Hummingbird](https://github.com/hummingbird-project/hummingbird) - Web framework
-- [Llama 4](https://cloud.google.com/vertex-ai) - AI model via Google Cloud Vertex AI
+- [Llama 4 (Scout)](https://cloud.google.com/vertex-ai) - AI model via Google Cloud Vertex AI
 - [AsyncHTTPClient](https://github.com/swift-server/async-http-client) - HTTP client
+- [Svelte](https://svelte.dev/) - Frontend framework (separate repository)
 
 ## Security
 
