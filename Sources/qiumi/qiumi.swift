@@ -16,6 +16,9 @@ struct QiumiApp {
 
         let router = Router()
 
+        // CORS middleware
+        router.middlewares.add(CORSMiddleware())
+
         // Add a route for the root path
         router.get("/") { request, context in
             return "Welcome to Qiumi - Indonesia-Australia Economic Explorer"
