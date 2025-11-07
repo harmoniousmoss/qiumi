@@ -24,6 +24,16 @@ struct QiumiApp {
             return "Welcome to Qiumi - Indonesia-Australia Economic Explorer"
         }
 
+        // Handle OPTIONS preflight for CORS
+        router.on("/insights", method: .init("OPTIONS")!) { request, context -> Response in
+            var headers: HTTPFields = [:]
+            headers[.init("Access-Control-Allow-Origin")!] = "*"
+            headers[.init("Access-Control-Allow-Methods")!] = "POST, OPTIONS"
+            headers[.init("Access-Control-Allow-Headers")!] = "Content-Type"
+            headers[.init("Access-Control-Max-Age")!] = "86400"
+            return Response(status: .noContent, headers: headers)
+        }
+
         // Add insights endpoint
         router.post("/insights") { request, context -> Response in
             struct InsightRequest: Decodable {
